@@ -9,9 +9,8 @@
 <style>
 :root{
     --accent:#0b74de;
+    --hover:#f97316; /* Màu cam khi hover */
     --bg-overlay: rgba(244, 242, 240, 0.88);
-    --card:#ffffff;
-    --muted:#6b7280
 }
 body{
     font-family:Arial,sans-serif;
@@ -81,6 +80,26 @@ ul li i {
     margin-right: 8px;
     flex-shrink: 0;
 }
+.contact-info p {
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.contact-info i {
+    color: var(--accent);
+    margin-right: 8px;
+    transition: color 0.3s ease;
+}
+.contact-info p:hover,
+.contact-info p:hover i,
+.contact-info p:hover a {
+    color: var(--hover);
+}
+.contact-info a {
+    color: inherit;
+    text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -89,9 +108,11 @@ ul li i {
 <img src="avatar.jpg" alt="Avatar">
 <div>
 <h1>Nguyễn Ngọc Chương</h1>
-<p>Trưởng phòng Công nghệ Thông tin — Trên 15 năm kinh nghiệm</p>
-<p>Email: <a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
-<p>Điện thoại: 0935 845 754</p>
+<p>Chuyên viên Công nghệ Thông tin — Trên 15 năm kinh nghiệm</p>
+<div class="contact-info">
+    <p><i class="fa-solid fa-envelope"></i><a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
+    <p><i class="fa-solid fa-mobile-screen-button"></i>0935 845 754</p>
+</div>
 <a class="btn" href="cv.pdf">Tải CV PDF</a>
 </div>
 </header>
