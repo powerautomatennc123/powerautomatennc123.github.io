@@ -9,15 +9,23 @@
 <style>
 :root{
     --accent:#0b74de;
-    --bg:#f4f2f0;       /* Nền pastel be nhẹ */
+    --bg-overlay: rgba(244, 242, 240, 0.88); /* nền pastel mờ */
     --card:#ffffff;
     --muted:#6b7280
 }
 body{
     font-family:Arial,sans-serif;
     margin:0;
-    background:var(--bg);
-    color:#0f172a
+    color:#0f172a;
+    background: url('3274408.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: var(--bg-overlay);
+    z-index: -1; /* overlay mờ dưới nội dung */
 }
 .container{
     max-width:980px;
@@ -27,7 +35,10 @@ body{
 header{
     display:flex;
     align-items:center;
-    gap:20px
+    gap:20px;
+    background: rgba(255,255,255,0.85);
+    padding:15px;
+    border-radius:12px;
 }
 header img{
     width:120px;
@@ -41,7 +52,10 @@ h1{
     color:var(--accent)
 }
 section{
-    margin-top:20px
+    margin-top:20px;
+    background: rgba(255,255,255,0.85);
+    padding:15px;
+    border-radius:8px;
 }
 .btn{
     display:inline-block;
@@ -78,7 +92,7 @@ ul li i {
 <p>Chuyên viên Công nghệ Thông tin — Trên 15 năm kinh nghiệm</p>
 <p>Email: <a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
 <p>Điện thoại: 0935 845 754</p>
-<a class="btn" href="NguyenNgocChuong_0935845754_EN_VN.pdf">Tải CV PDF</a>
+<a class="btn" href="cv.pdf">Tải CV PDF</a>
 </div>
 </header>
 
