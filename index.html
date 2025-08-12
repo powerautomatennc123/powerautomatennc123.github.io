@@ -1,60 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nguyen Ngoc Chuong — Profile</title>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nguyễn Ngọc Chương — Profile</title>
 <style>
 :root{
     --accent:#0b74de;
-    --hover:#f97316;
-    --bg-overlay: rgba(244, 242, 240, 0.88);
+    --bg:rgba(247,249,252,0.85);
+    --card:rgba(255,255,255,0.9);
+    --muted:#6b7280;
 }
 body{
     font-family:Arial,sans-serif;
     margin:0;
+    background:url('3274408.jpg') no-repeat center center fixed;
+    background-size:cover;
     color:#0f172a;
-    background: url('3274408.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-body::before {
-    content: "";
-    position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: var(--bg-overlay);
-    z-index: -1;
 }
 .container{
     max-width:980px;
     margin:auto;
-    padding:20px
+    padding:20px;
 }
 header{
     display:flex;
     align-items:center;
     gap:20px;
-    background: rgba(255,255,255,0.85);
-    padding:15px;
+    background:var(--card);
     border-radius:12px;
+    padding:15px;
 }
-header img{
+header img.avatar{
     width:120px;
     height:120px;
     border-radius:12px;
-    object-fit:cover
+    object-fit:cover;
 }
 h1{
     margin:0;
     font-size:24px;
-    color:var(--accent)
+    color:var(--accent);
 }
 section{
     margin-top:20px;
-    background: rgba(255,255,255,0.85);
+    background:var(--card);
     padding:15px;
-    border-radius:8px;
+    border-radius:12px;
 }
 .btn{
     display:inline-block;
@@ -63,155 +55,96 @@ section{
     padding:10px 14px;
     border-radius:8px;
     text-decoration:none;
-    margin-top:10px
+    margin-top:10px;
 }
-ul {
-    list-style: none;
-    padding-left: 20px;
-    margin: 0;
+.icon{
+    margin-right:8px;
 }
-ul li {
-    margin: 8px 0;
-    display: flex;
-    align-items: center;
+.flag-container{
+    position:fixed;
+    top:10px;
+    right:10px;
+    display:flex;
+    gap:5px;
 }
-ul li i {
-    color: var(--accent);
-    margin-right: 8px;
-    flex-shrink: 0;
+.flag-container img{
+    width:30px;
+    height:20px;
+    cursor:pointer;
+    border:1px solid #ccc;
 }
-.contact-info p {
-    margin: 4px 0;
-    display: flex;
-    align-items: center;
-    transition: color 0.3s ease;
+ul{
+    list-style:none;
+    padding:0;
 }
-.contact-info i {
-    color: var(--accent);
-    margin-right: 8px;
-    transition: color 0.3s ease;
+ul li{
+    margin-bottom:8px;
 }
-.contact-info p:hover,
-.contact-info p:hover i,
-.contact-info p:hover a {
-    color: var(--hover);
-}
-.contact-info a {
-    color: inherit;
-    text-decoration: none;
-}
-/* Language switch */
-.lang-switch {
-    position: fixed;
-    top: 10px;
-    right: 15px;
-    display: flex;
-    gap: 8px;
-    z-index: 1000;
-}
-.lang-switch img {
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    transition: transform 0.2s;
-}
-.lang-switch img:hover {
-    transform: scale(1.1);
-}
-[data-lang] { display: none; }
 </style>
 </head>
 <body>
-
-<!-- Nút chọn ngôn ngữ -->
-<div class="lang-switch">
+<div class="flag-container">
     <img src="vn_flag_icon.png" alt="Tiếng Việt" onclick="setLanguage('vi')">
     <img src="en_flag_icon.png" alt="English" onclick="setLanguage('en')">
 </div>
-
 <div class="container">
 <header>
-<img src="avatar.jpg" alt="Avatar">
-<div>
-<h1 data-lang="vi">Nguyễn Ngọc Chương</h1>
-<h1 data-lang="en">Nguyen Ngoc Chuong</h1>
-
-<p data-lang="vi">Chuyên viên Công nghệ Thông tin — Trên 15 năm kinh nghiệm</p>
-<p data-lang="en">IT Specialist — Over 15 years of experience</p>
-
-<div class="contact-info">
-    <p data-lang="vi"><i class="fa-solid fa-envelope"></i><a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
-    <p data-lang="en"><i class="fa-solid fa-envelope"></i><a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
-
-    <p data-lang="vi"><i class="fa-solid fa-mobile-screen-button"></i>0935 845 754</p>
-    <p data-lang="en"><i class="fa-solid fa-mobile-screen-button"></i>+84 935 845 754</p>
-</div>
-<a class="btn" href="cv.pdf" data-lang="vi">Tải CV PDF</a>
-<a class="btn" href="cv.pdf" data-lang="en">Download CV PDF</a>
-</div>
+    <img src="avatar.jpg" alt="Avatar" class="avatar">
+    <div>
+        <h1 data-vi="Nguyễn Ngọc Chương" data-en="Nguyen Ngoc Chuong">Nguyễn Ngọc Chương</h1>
+        <p><span class="icon">📧</span><span data-vi="johnpak7849@gmail.com" data-en="johnpak7849@gmail.com">johnpak7849@gmail.com</span></p>
+        <p><span class="icon">📱</span><span data-vi="0935 845 754" data-en="+84 935 845 754">0935 845 754</span></p>
+        <a class="btn" href="cv.pdf" data-vi="Tải CV PDF" data-en="Download CV PDF">Tải CV PDF</a>
+    </div>
 </header>
 
 <section>
-<h2 data-lang="vi">Giới thiệu</h2>
-<h2 data-lang="en">About Me</h2>
-<p data-lang="vi">Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT.</p>
-<p data-lang="en">I have many years of experience in the IT field, persistent and always eager to learn. I aim to work as an IT Specialist or IT Manager.</p>
+    <h2 data-vi="Giới thiệu" data-en="About Me">Giới thiệu</h2>
+    <p data-vi="Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT."
+       data-en="I have many years of experience in the IT field, with persistence and a constant desire to learn. I aim to work in positions such as IT Specialist or IT Manager.">
+       Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT.
+    </p>
 </section>
 
 <section>
-<h2 data-lang="vi">Kinh nghiệm</h2>
-<h2 data-lang="en">Experience</h2>
-<ul>
-<li data-lang="vi"><i class="fa-regular fa-hand-point-right"></i>2008-2024: Trưởng phòng CNTT - VTC Academy</li>
-<li data-lang="en"><i class="fa-regular fa-hand-point-right"></i>2008-2024: Head of IT Department - VTC Academy</li>
-
-<li data-lang="vi"><i class="fa-regular fa-hand-point-right"></i>1997-2007: Nhân viên CNTT - Công ty Tân Á</li>
-<li data-lang="en"><i class="fa-regular fa-hand-point-right"></i>1997-2007: IT Staff - Tan A Company</li>
-</ul>
+    <h2 data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</h2>
+    <ul>
+        <li data-vi="2008-2024: Trưởng phòng CNTT - VTC Academy"
+            data-en="2008-2024: Head of IT Department - VTC Academy">2008-2024: Trưởng phòng CNTT - VTC Academy</li>
+        <li data-vi="1997-2007: Nhân viên CNTT - Công ty Tân Á"
+            data-en="1997-2007: IT Staff - Tan A Company">1997-2007: Nhân viên CNTT - Công ty Tân Á</li>
+    </ul>
 </section>
 
 <section>
-<h2 data-lang="vi">Kỹ năng</h2>
-<h2 data-lang="en">Skills</h2>
-<ul>
-<li><i class="fa-solid fa-network-wired"></i><span data-lang="vi">Routing & Switching</span><span data-lang="en">Routing & Switching</span></li>
-<li><i class="fa-solid fa-shield-halved"></i><span data-lang="vi">Firewall/IDS</span><span data-lang="en">Firewall/IDS</span></li>
-<li>
-    <i class="fa-brands fa-windows"></i>
-    <i class="fa-brands fa-linux" style="margin-left:6px;"></i>
-    <span data-lang="vi">Windows/Linux Admin</span>
-    <span data-lang="en">Windows/Linux Administration</span>
-</li>
-<li><i class="fa-solid fa-server"></i><span data-lang="vi">Virtualization</span><span data-lang="en">Virtualization</span></li>
-<li><i class="fa-solid fa-video"></i><span data-lang="vi">CCTV/VMS</span><span data-lang="en">CCTV/VMS</span></li>
-<li><i class="fa-solid fa-robot"></i><span data-lang="vi">Automation/AI</span><span data-lang="en">Automation/AI</span></li>
-</ul>
+    <h2 data-vi="Kỹ năng" data-en="Skills">Kỹ năng</h2>
+    <ul>
+        <li><span class="icon">🛠️</span><span data-vi="Routing & Switching" data-en="Routing & Switching">Routing & Switching</span></li>
+        <li><span class="icon">🛡️</span><span data-vi="Firewall/IDS" data-en="Firewall/IDS">Firewall/IDS</span></li>
+        <li><span class="icon">🪟🐧</span><span data-vi="Windows/Linux Admin" data-en="Windows/Linux Admin">Windows/Linux Admin</span></li>
+        <li><span class="icon">🖥️</span><span data-vi="Virtualization" data-en="Virtualization">Virtualization</span></li>
+        <li><span class="icon">📹</span><span data-vi="CCTV/VMS" data-en="CCTV/VMS">CCTV/VMS</span></li>
+        <li><span class="icon">🤖</span><span data-vi="Automation/AI" data-en="Automation/AI">Automation/AI</span></li>
+    </ul>
 </section>
 
 <section>
-<h2 data-lang="vi">Chứng chỉ</h2>
-<h2 data-lang="en">Certifications</h2>
-<ul>
-<li><i class="fa-solid fa-medal" style="color:gold"></i><span data-lang="vi">Advanced Linux System Administration (2007)</span><span data-lang="en">Advanced Linux System Administration (2007)</span></li>
-<li><i class="fa-solid fa-medal" style="color:gold"></i><span data-lang="vi">Linux Professional Institute 1-2 (LPI) (2007)</span><span data-lang="en">Linux Professional Institute 1-2 (LPI) (2007)</span></li>
-<li><i class="fa-solid fa-medal" style="color:gold"></i><span data-lang="vi">Microsoft Certificated Solution Associate (MCSA) (2005)</span><span data-lang="en">Microsoft Certificated Solution Associate (MCSA) (2005)</span></li>
-</ul>
+    <h2 data-vi="Chứng chỉ" data-en="Certifications">Chứng chỉ</h2>
+    <ul>
+        <li><span class="icon">🏅</span><span data-vi="Advanced Linux System Administration - 2007" data-en="Advanced Linux System Administration - 2007">Advanced Linux System Administration - 2007</span></li>
+        <li><span class="icon">🏅</span><span data-vi="Linux Professional Institute 1-2 (LPI) - 2007" data-en="Linux Professional Institute 1-2 (LPI) - 2007">Linux Professional Institute 1-2 (LPI) - 2007</span></li>
+        <li><span class="icon">🏅</span><span data-vi="Microsoft Certificated Solution Associate (MCSA) - 2005" data-en="Microsoft Certificated Solution Associate (MCSA) - 2005">Microsoft Certificated Solution Associate (MCSA) - 2005</span></li>
+    </ul>
 </section>
 </div>
 
 <script>
-function setLanguage(lang) {
-    localStorage.setItem('lang', lang);
-    document.querySelectorAll('[data-lang]').forEach(el => {
-        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+function setLanguage(lang){
+    document.querySelectorAll('[data-vi]').forEach(el=>{
+        el.innerHTML = el.getAttribute('data-'+lang);
     });
 }
-(function(){
-    let lang = localStorage.getItem('lang') || 'en'; // mặc định English
-    setLanguage(lang);
-})();
+setLanguage('en'); // Mặc định hiển thị tiếng Anh
 </script>
 </body>
 </html>
