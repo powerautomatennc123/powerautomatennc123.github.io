@@ -4,16 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nguyễn Ngọc Chương — Profile</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
     --accent:#0b74de;
     --bg:rgba(247,249,252,0.85);
-    --card:rgba(255,255,255,0.95);
+    --card:rgba(255,255,255,0.9);
     --muted:#6b7280;
 }
 body{
-    font-family:'Poppins', sans-serif;
+    font-family:Arial,sans-serif;
     margin:0;
     background:url('3274408.jpg') no-repeat center center fixed;
     background-size:cover;
@@ -29,48 +28,34 @@ header{
     align-items:center;
     gap:20px;
     background:var(--card);
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 6px 15px rgba(0,0,0,0.15);
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    border-radius:12px;
+    padding:15px;
 }
 header img.avatar{
     width:120px;
     height:120px;
     border-radius:12px;
     object-fit:cover;
-    transition: transform 0.3s ease;
-}
-header img.avatar:hover{
-    transform: scale(1.05);
 }
 h1{
     margin:0;
-    font-size:26px;
+    font-size:24px;
     color:var(--accent);
 }
 section{
     margin-top:20px;
     background:var(--card);
     padding:15px;
-    border-radius:16px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    border-radius:12px;
 }
 .btn{
     display:inline-block;
     background:var(--accent);
     color:white;
-    padding:10px 16px;
+    padding:10px 14px;
     border-radius:8px;
     text-decoration:none;
     margin-top:10px;
-    font-weight:600;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-.btn:hover{
-    background:#095bb2;
-    transform: translateY(-2px);
 }
 .icon{
     margin-right:8px;
@@ -87,10 +72,6 @@ section{
     height:20px;
     cursor:pointer;
     border:1px solid #ccc;
-    transition: transform 0.2s ease;
-}
-.flag-container img:hover{
-    transform: scale(1.1);
 }
 ul{
     list-style:none;
@@ -100,22 +81,23 @@ ul li{
     margin-bottom:8px;
 }
 
-/* Hiệu ứng scroll */
-.reveal{
-    opacity:0;
-    transform: translateY(30px);
+.banner{
+    margin-bottom:20px;
+    animation: fadeIn 1s ease;
 }
-.reveal.active{
-    opacity:1;
-    transform: translateY(0);
+.banner img{
+    width:100%;
+    max-height:280px;
+    object-fit:cover;
+    border-radius:16px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
 }
-
 @media(max-width:768px){
-    header{
-        flex-direction:column;
-        text-align:center;
+    .banner img{
+        max-height:200px;
     }
 }
+
 </style>
 </head>
 <body>
@@ -124,7 +106,13 @@ ul li{
     <img src="en_flag_icon.png" alt="English" onclick="setLanguage('en')">
 </div>
 <div class="container">
-<header class="reveal">
+
+<!-- Banner AI -->
+<div class="banner">
+    <img src="A_digital_illustration_depicts_a_futuristic_data_c.png" alt="AI Datacenter Banner">
+</div>
+
+<header>
     <img src="avatar.jpg" alt="Avatar" class="avatar">
     <div>
         <h1 data-vi="Nguyễn Ngọc Chương" data-en="Nguyen Ngoc Chuong">Nguyễn Ngọc Chương</h1>
@@ -134,7 +122,7 @@ ul li{
     </div>
 </header>
 
-<section class="reveal">
+<section>
     <h2 data-vi="Giới thiệu" data-en="About Me">Giới thiệu</h2>
     <p data-vi="Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT."
        data-en="I have many years of experience in the IT field, with persistence and a constant desire to learn. My career goal is to work as an IT Specialist or IT Manager.">
@@ -142,7 +130,7 @@ ul li{
     </p>
 </section>
 
-<section class="reveal">
+<section>
     <h2 data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</h2>
     <ul>
         <li data-vi="2008-2024: Trưởng phòng CNTT - VTC Academy"
@@ -152,7 +140,7 @@ ul li{
     </ul>
 </section>
 
-<section class="reveal">
+<section>
     <h2 data-vi="Kỹ năng" data-en="Skills">Kỹ năng</h2>
     <ul>
         <li><span class="icon">🛠️</span><span data-vi="Routing & Switching" data-en="Routing & Switching">Routing & Switching</span></li>
@@ -164,7 +152,7 @@ ul li{
     </ul>
 </section>
 
-<section class="reveal">
+<section>
     <h2 data-vi="Chứng chỉ" data-en="Certifications">Chứng chỉ</h2>
     <ul>
         <li><span class="icon">🏅</span><span data-vi="Advanced Linux System Administration - 2007" data-en="Advanced Linux System Administration - 2007">Advanced Linux System Administration - 2007</span></li>
@@ -180,20 +168,7 @@ function setLanguage(lang){
         el.innerHTML = el.getAttribute('data-'+lang);
     });
 }
-setLanguage('en'); // Mặc định tiếng Anh
-
-// Hiệu ứng scroll
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-        }
-    });
-},{ threshold: 0.1 });
-
-reveals.forEach(el => observer.observe(el));
+setLanguage('en'); // Mặc định hiển thị tiếng Anh
 </script>
 </body>
 </html>
