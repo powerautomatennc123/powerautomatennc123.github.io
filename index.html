@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nguyễn Ngọc Chương — Profile</title>
-<!-- Font Awesome CDN -->
+<title>Nguyen Ngoc Chuong — Profile</title>
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 :root{
     --accent:#0b74de;
-    --hover:#f97316; /* Màu cam khi hover */
+    --hover:#f97316;
     --bg-overlay: rgba(244, 242, 240, 0.88);
 }
 body{
@@ -100,60 +100,118 @@ ul li i {
     color: inherit;
     text-decoration: none;
 }
+/* Language switch */
+.lang-switch {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    z-index: 1000;
+}
+.lang-switch img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: transform 0.2s;
+}
+.lang-switch img:hover {
+    transform: scale(1.1);
+}
+[data-lang] { display: none; }
 </style>
 </head>
 <body>
+
+<!-- Nút chọn ngôn ngữ -->
+<div class="lang-switch">
+    <img src="vn_flag_icon.png" alt="Tiếng Việt" onclick="setLanguage('vi')">
+    <img src="en_flag_icon.png" alt="English" onclick="setLanguage('en')">
+</div>
+
 <div class="container">
 <header>
 <img src="avatar.jpg" alt="Avatar">
 <div>
-<h1>Nguyễn Ngọc Chương</h1>
-<p>Trưởng Phòng Công nghệ Thông tin — Trên 15 năm kinh nghiệm</p>
+<h1 data-lang="vi">Nguyễn Ngọc Chương</h1>
+<h1 data-lang="en">Nguyen Ngoc Chuong</h1>
+
+<p data-lang="vi">Chuyên viên Công nghệ Thông tin — Trên 15 năm kinh nghiệm</p>
+<p data-lang="en">IT Specialist — Over 15 years of experience</p>
+
 <div class="contact-info">
-    <p><i class="fa-solid fa-envelope"></i><a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
-    <p><i class="fa-solid fa-mobile-screen-button"></i>0935 845 754</p>
+    <p data-lang="vi"><i class="fa-solid fa-envelope"></i><a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
+    <p data-lang="en"><i class="fa-solid fa-envelope"></i><a href="mailto:johnpak7849@gmail.com">johnpak7849@gmail.com</a></p>
+
+    <p data-lang="vi"><i class="fa-solid fa-mobile-screen-button"></i>0935 845 754</p>
+    <p data-lang="en"><i class="fa-solid fa-mobile-screen-button"></i>+84 935 845 754</p>
 </div>
-<a class="btn" href="cv.pdf">Tải CV PDF</a>
+<a class="btn" href="cv.pdf" data-lang="vi">Tải CV PDF</a>
+<a class="btn" href="cv.pdf" data-lang="en">Download CV PDF</a>
 </div>
 </header>
 
 <section>
-<h2>Giới thiệu</h2>
-<p>Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT.</p>
+<h2 data-lang="vi">Giới thiệu</h2>
+<h2 data-lang="en">About Me</h2>
+<p data-lang="vi">Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT.</p>
+<p data-lang="en">I have many years of experience in the IT field, persistent and always eager to learn. I aim to work as an IT Specialist or IT Manager.</p>
 </section>
 
 <section>
-<h2>Kinh nghiệm</h2>
+<h2 data-lang="vi">Kinh nghiệm</h2>
+<h2 data-lang="en">Experience</h2>
 <ul>
-<li><i class="fa-regular fa-hand-point-right"></i>2008-2024: Trưởng phòng CNTT - VTC Academy</li>
-<li><i class="fa-regular fa-hand-point-right"></i>1997-2007: Nhân viên CNTT - Công ty Tân Á</li>
+<li data-lang="vi"><i class="fa-regular fa-hand-point-right"></i>2008-2024: Trưởng phòng CNTT - VTC Academy</li>
+<li data-lang="en"><i class="fa-regular fa-hand-point-right"></i>2008-2024: Head of IT Department - VTC Academy</li>
+
+<li data-lang="vi"><i class="fa-regular fa-hand-point-right"></i>1997-2007: Nhân viên CNTT - Công ty Tân Á</li>
+<li data-lang="en"><i class="fa-regular fa-hand-point-right"></i>1997-2007: IT Staff - Tan A Company</li>
 </ul>
 </section>
 
 <section>
-<h2>Kỹ năng</h2>
+<h2 data-lang="vi">Kỹ năng</h2>
+<h2 data-lang="en">Skills</h2>
 <ul>
-<li><i class="fa-solid fa-network-wired"></i>Routing & Switching</li>
-<li><i class="fa-solid fa-shield-halved"></i>Firewall/IDS</li>
+<li><i class="fa-solid fa-network-wired"></i><span data-lang="vi">Routing & Switching</span><span data-lang="en">Routing & Switching</span></li>
+<li><i class="fa-solid fa-shield-halved"></i><span data-lang="vi">Firewall/IDS</span><span data-lang="en">Firewall/IDS</span></li>
 <li>
     <i class="fa-brands fa-windows"></i>
     <i class="fa-brands fa-linux" style="margin-left:6px;"></i>
-    Windows/Linux Admin
+    <span data-lang="vi">Windows/Linux Admin</span>
+    <span data-lang="en">Windows/Linux Administration</span>
 </li>
-<li><i class="fa-solid fa-server"></i>Virtualization</li>
-<li><i class="fa-solid fa-video"></i>CCTV/VMS</li>
-<li><i class="fa-solid fa-robot"></i>Automation/AI</li>
+<li><i class="fa-solid fa-server"></i><span data-lang="vi">Virtualization</span><span data-lang="en">Virtualization</span></li>
+<li><i class="fa-solid fa-video"></i><span data-lang="vi">CCTV/VMS</span><span data-lang="en">CCTV/VMS</span></li>
+<li><i class="fa-solid fa-robot"></i><span data-lang="vi">Automation/AI</span><span data-lang="en">Automation/AI</span></li>
 </ul>
 </section>
 
 <section>
-<h2>Chứng chỉ</h2>
+<h2 data-lang="vi">Chứng chỉ</h2>
+<h2 data-lang="en">Certifications</h2>
 <ul>
-<li><i class="fa-solid fa-medal" style="color:gold"></i>Advanced Linux System Administration (2007)</li>
-<li><i class="fa-solid fa-medal" style="color:gold"></i>Linux Professional Institute 1-2 (LPI) (2007)</li>
-<li><i class="fa-solid fa-medal" style="color:gold"></i>Microsoft Certificated Solution Associate (MCSA) (2005)</li>
+<li><i class="fa-solid fa-medal" style="color:gold"></i><span data-lang="vi">Advanced Linux System Administration (2007)</span><span data-lang="en">Advanced Linux System Administration (2007)</span></li>
+<li><i class="fa-solid fa-medal" style="color:gold"></i><span data-lang="vi">Linux Professional Institute 1-2 (LPI) (2007)</span><span data-lang="en">Linux Professional Institute 1-2 (LPI) (2007)</span></li>
+<li><i class="fa-solid fa-medal" style="color:gold"></i><span data-lang="vi">Microsoft Certificated Solution Associate (MCSA) (2005)</span><span data-lang="en">Microsoft Certificated Solution Associate (MCSA) (2005)</span></li>
 </ul>
 </section>
 </div>
+
+<script>
+function setLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+}
+(function(){
+    let lang = localStorage.getItem('lang') || 'en'; // mặc định English
+    setLanguage(lang);
+})();
+</script>
 </body>
 </html>
