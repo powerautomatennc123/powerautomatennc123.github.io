@@ -69,6 +69,7 @@ section {
     text-decoration: none;
     margin-top: 10px;
     transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 .btn:hover {
     background: #095bb0;
@@ -117,7 +118,7 @@ ul li {
 .banner img:hover {
     transform: scale(1.02);
 }
-/* Scrolling text under banner */
+/* Scrolling text */
 .scrolling-text {
     overflow: hidden;
     white-space: nowrap;
@@ -170,12 +171,10 @@ ul li {
 </div>
 <div class="container">
 
-<!-- Banner AI -->
 <div class="banner">
     <img src="banner-ai.png" alt="AI Datacenter Banner - Nguyễn Ngọc Chương">
 </div>
 
-<!-- Scrolling text -->
 <div class="scrolling-text">
     <span data-vi="TẬN TÂM - TẬN LỰC - TRUNG THÀNH - TRUNG THỰC" 
           data-en="DEDICATION - EFFORT - LOYALTY - HONESTY">
@@ -187,17 +186,48 @@ ul li {
     <img src="avatar.jpg" alt="Avatar - Nguyễn Ngọc Chương" class="avatar">
     <div>
         <h1 data-vi="Nguyễn Ngọc Chương" data-en="Nguyen Ngoc Chuong">Nguyễn Ngọc Chương</h1>
-        <p><span class="icon">📧</span><span data-vi="johnpak7849@gmail.com" data-en="johnpak7849@gmail.com">johnpak7849@gmail.com</span></p>
-        <p><span class="icon">📱</span><span data-vi="0935 845 754" data-en="+84 935 845 754">0935 845 754</span></p>
-        <!-- Nút download không lộ link -->
-        <a class="btn" href="#" onclick="downloadCV()" 
-           data-vi="Tải CV PDF" data-en="Download CV PDF">
-           Tải CV PDF
-        </a>
+        <p><span class="icon">📧</span>johnpak7849@gmail.com</p>
+        <p><span class="icon">📱</span>+84 935 845 754</p>
+        <div class="btn" onclick="downloadCV()">Tải CV PDF</div>
     </div>
 </header>
 
-<!-- Các section giữ nguyên nội dung của bạn -->
+<section>
+    <h2 data-vi="Giới thiệu" data-en="About Me">Giới thiệu</h2>
+    <p>Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT.</p>
+</section>
+
+<section>
+    <h2 data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</h2>
+    <ul>
+        <li>Hiện tại: Tôi có nhiều kinh nghiệm trong việc triển khai trọn gói các dự án CNTT...</li>
+        <li>2008-2024: Trưởng phòng CNTT - VTC Academy</li>
+        <li>1997-2007: Nhân viên CNTT - Công ty Tân Á</li>
+    </ul>
+</section>
+
+<section>
+    <h2 data-vi="Kỹ năng" data-en="Skills">Kỹ năng</h2>
+    <ul>
+        <li>Routing & Switching</li>
+        <li>Firewall/IDS/IPS</li>
+        <li>Windows/Linux Admin</li>
+        <li>Virtualization</li>
+        <li>CCTV/VMS</li>
+        <li>Automation/AI</li>
+        <li>Mail Server: On-Premise, Cloud, Hybrid</li>
+        <li>Backup 3-2-1</li>
+    </ul>
+</section>
+
+<section>
+    <h2 data-vi="Chứng chỉ" data-en="Certifications">Chứng chỉ</h2>
+    <ul>
+        <li>Advanced Linux System Administration - 2007</li>
+        <li>Linux Professional Institute 1-2 (LPI) - 2007</li>
+        <li>Microsoft MCSA - 2005</li>
+    </ul>
+</section>
 
 </div>
 
@@ -207,14 +237,18 @@ function setLanguage(lang){
         el.innerHTML = el.getAttribute('data-'+lang);
     });
 }
+setLanguage('en');
 
-// Hàm tải CV qua Worker (ẩn link nhạy cảm)
 function downloadCV(){
-    const workerURL = "https://cv-download-log.powerautomate-nnc.workers.dev/";
-    window.location.href = workerURL;
+    let vnTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
+    fetch("https://cv-download-log.powerautomate-nnc.workers.dev/", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ action: "download_cv", time: vnTime })
+    }).finally(()=>{
+        window.location.href = "https://powerautomatennc123.github.io/NguyenNgocChuong_0935845754_VN_EN.pdf";
+    });
 }
-
-setLanguage('en'); // Default English
 </script>
 </body>
 </html>
